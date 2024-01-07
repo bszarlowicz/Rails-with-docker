@@ -1,4 +1,4 @@
-# Rails7/Bootstrap/Docker
+# Rails7/Bootstrap/Docker - container deploy
 
 Rails 7 app with bootstrap and docker configuration (Windows):
 
