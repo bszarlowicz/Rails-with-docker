@@ -6,13 +6,8 @@ Step by step instruction:
 
 - Bootstrap connection:  https://jasonfleetwoodboldt.com/courses/rails-7-crash-course/
 - In Dockerfile:
-    1. remove:
-         ``` RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile ```
-    3. add:
+    1. add:
          ``` RUN apt-get update && \ apt-get install -y nodejs ```
-- In Dockerignore:
-    1. remove:
-         ``` /public/assets ```
 - In config/environment/production.rb:
     1. change:
          ```config.force_ssl = true``` to ```config.force_ssl = false```
