@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_07_213706) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_11_211312) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -18,4 +18,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_07_213706) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sentences", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "words", force: :cascade do |t|
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "sentence_id", null: false
+    t.index ["sentence_id"], name: "index_words_on_sentence_id"
+  end
+
+  add_foreign_key "words", "sentences"
 end

@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Sentences
+
+#sentences
+  - @sentences.each do |sentence|
+    == render sentence
+    p
+      = link_to "Show this sentence", sentence
+
+= link_to "New sentence", new_sentence_path
