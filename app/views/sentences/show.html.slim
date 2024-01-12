@@ -7,21 +7,24 @@ p style="color: green" = notice
     .col-auto
       =link_to "Edit", edit_sentence_path(@sentence), class: "btn btn-outline-primary"
     .col-auto
-      =link_to "Destroy", @sentence, method: :delete, class: "btn btn-outline-danger"
+      = button_to "Destroy", @sentence, method: :delete, class: "btn btn-outline-danger"
 
-.pracitceSection
-  .display-2
-    == render @sentence
+.pracitce data-controller="dragAndDrop"
+  .pracitceSection 
+    .display-2
+      .row.align-items-center
+        - @sentence_without_random_words.split(' ').each do |part|
+            - unless part == "*"
+              .col-auto
+                = part
+            - else
+              .col-auto
+                .dropZone data-action="dragover->dragAndDrop#onDragOver drop->dragAndDrop#onDrop"
 
-
-
-.row.w-50.mt-5.mx-auto data-controller="dragAndDrop"
-  .example-parent
-    .example-origin
-      div
-        #draggable-1.example-draggable draggable="true" data-action="dragstart->dragAndDrop#onDragStart"
-          | draggable
-
-
-
-    .example-dropzone dropzone
+  .selectedWords 
+    .row.justify-content-center.mt-5
+      - @random_words.each do |word|
+        .col-auto
+          div.wordOption id="#{dom_id word}" draggable="true" data-action="dragstart->dragAndDrop#onDragStart"
+            .wordOptionText
+              = word.value

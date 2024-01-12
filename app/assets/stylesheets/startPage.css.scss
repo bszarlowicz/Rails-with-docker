@@ -36,3 +36,55 @@
     flex-grow: 1;
     padding: 10px;
   }
+
+  .dropZone{
+    height: 80px;
+    width: 120px;
+    border-radius: 15px;
+    border: 3px dashed rgb(128, 128, 128);
+    background: rgb(206, 206, 206);
+    position: relative;
+    margin-top: 10px;
+  }
+
+  .customIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .customIcon:hover{
+    transform: scale(1.2);
+  }
+
+  .wordOption{
+    height: 80px;
+    width: 120px;
+    border-radius: 15px;
+    border: 3px dashed #7FC7D9;
+    background: #DCF2F1;
+    position: relative;
+  }
+
+  .wordOptionText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+

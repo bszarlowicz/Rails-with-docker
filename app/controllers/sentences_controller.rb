@@ -8,6 +8,13 @@ class SentencesController < ApplicationController
 
   # GET /sentences/1 or /sentences/1.json
   def show
+    @words = @sentence.words
+    @random_words = @words.sample((@words.length.to_f / 3).ceil)
+    @sentence_without_random_words = @sentence.content.dup
+
+    @random_words.each do |random_word|
+      @sentence_without_random_words.gsub!(random_word.value, '*')
+    end
   end
 
   # GET /sentences/new
@@ -38,13 +45,16 @@ class SentencesController < ApplicationController
   # PATCH/PUT /sentences/1 or /sentences/1.json
   def update
     respond_to do |format|
-      if @sentence.update(sentence_params)
-        create_words_from_sentence(@sentence.content) if sentence_params[:content].present?
-        format.html { redirect_to sentence_url(@sentence), notice: "Sentence was successfully updated." }
-        format.json { render :show, status: :ok, location: @sentence }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @sentence.errors, status: :unprocessable_entity }
+      ActiveRecord::Base.transaction do
+        if @sentence.update(sentence_params)
+          @sentence.words.destroy_all
+          create_words_from_sentence(@sentence.content) if sentence_params[:content].present?
+          format.html { redirect_to sentence_url(@sentence), notice: "Sentence was successfully updated." }
+          format.json { render :show, status: :ok, location: @sentence }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @sentence.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
