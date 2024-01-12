@@ -1,10 +1,27 @@
 p style="color: green" = notice
 
-== render @sentence
 
-div
-  => link_to "Edit this sentence", edit_sentence_path(@sentence)
-  '|
-  =< link_to "Back to sentences", sentences_path
+.controlPanel.row.justify-content-center
+    .col-auto
+      =link_to "Back", sentences_path, class: "btn btn-outline-secondary"
+    .col-auto
+      =link_to "Edit", edit_sentence_path(@sentence), class: "btn btn-outline-primary"
+    .col-auto
+      =link_to "Destroy", @sentence, method: :delete, class: "btn btn-outline-danger"
 
-  = button_to "Destroy this sentence", @sentence, method: :delete
+.pracitceSection
+  .display-2
+    == render @sentence
+
+
+
+.row.w-50.mt-5.mx-auto data-controller="dragAndDrop"
+  .example-parent
+    .example-origin
+      div
+        #draggable-1.example-draggable draggable="true" data-action="dragstart->dragAndDrop#onDragStart"
+          | draggable
+
+
+
+    .example-dropzone dropzone
