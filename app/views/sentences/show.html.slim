@@ -21,8 +21,8 @@ p style="color: green" = notice
               .col-auto
                 .dropZone data-action="dragover->dragAndDrop#onDragOver drop->dragAndDrop#onDrop"
 
-  .selectedWords 
-    .row.justify-content-center.mt-5
+  .selectedWords data-action="dragover->dragAndDrop#onDragOver drop->dragAndDrop#onDrop"
+    .wordOptionHolder.row.justify-content-center.mt-5.w-50.mx-auto
       - @random_words.each do |word|
         .col-auto
           div.wordOption id="#{dom_id word}" draggable="true" data-action="dragstart->dragAndDrop#onDragStart"
