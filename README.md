@@ -1,9 +1,11 @@
 # Rails7/HTML Drag and Drop API/vanilla JavaScript
 
 **About:**
+
 The application allows users to create sentences from which random words are selected (the quantity depends on the sentence's length). Random words are extracted from the sentence, leaving gaps in their place, and then transferred to the bottom section as movable blocks. The user's task is to arrange the words in the correct gaps to form a valid sentence.
 
 **Goal:**
+
 This application was created to learn the drag and drop mechanism of HTML elements using HTML Drag and Drop API with vanilla JavaScript.
 
 **Results:**
