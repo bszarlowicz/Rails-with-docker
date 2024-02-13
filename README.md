@@ -34,7 +34,8 @@ Results:
 - page:
 
   
-![image](https://github.com/bszarlowicz/Rails-with-docker/assets/127704473/41ea4601-4efe-4c51-9ebc-24770aeaf5ee)
+![image](https://github.com/bszarlowicz/Rails7-with-docker/assets/127704473/5754d094-870d-47ee-b381-2f0cae8100fd)
+
 
   
     
