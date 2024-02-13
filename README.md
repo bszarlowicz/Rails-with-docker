@@ -1,3 +1,16 @@
+# Rails7/HTML Drag and Drop API/vanilla JavaScript
+
+**About:**
+The application allows users to create sentences from which random words are selected (the quantity depends on the sentence's length). Random words are extracted from the sentence, leaving gaps in their place, and then transferred to the bottom section as movable blocks. The user's task is to arrange the words in the correct gaps to form a valid sentence.
+
+**Goal:**
+This application was created to learn the drag and drop mechanism of HTML elements using HTML Drag and Drop API with vanilla JavaScript.
+
+**Results:**
+
+![8fpbt5](https://github.com/bszarlowicz/Rails7-DragAndDrop-Docker/assets/127704473/949fb46a-eb4e-464d-99bc-f14d4cfbb46f)
+
+
 # Rails7/Bootstrap/Docker - container deploy
 
 Rails 7 app with bootstrap and docker configuration (Windows):
